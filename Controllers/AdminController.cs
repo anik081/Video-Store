@@ -293,7 +293,51 @@ namespace Video_Store.Controllers
 
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult Register()
+        {
+            Customer_info customer_Info = new Customer_info();
+          
+           // 
+            return View(customer_Info);
+        }
+        [HttpPost]
+        public ActionResult Register(Customer_info model)
+        {
+            using(register db = new register())
+            {
+                db.Customer_info.Add(model);
+                db.SaveChanges();
 
+            }
+            ModelState.Clear();
+            TempData["SM"] = "Record Saved!";
+            return View("Register", new Customer_info());
+        }
+        [HttpGet]
+        public ActionResult Login()
+        {
+            Customer_info customer_Info = new Customer_info();
 
+            return View(customer_Info);
+        }
+
+        [HttpPost]
+        public ActionResult Login( Customer_info model)
+        {
+            
+            using(register db = new register())
+            {
+                if(db.Customer_info.Count(x=>x.Name==model.Name && x.Password == model.Password) == 1)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(model);
+
+                }
+            }
+        }
     }
 }

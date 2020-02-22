@@ -160,6 +160,9 @@
       <DependentUpon>Genre.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View Model\CatgoryVM.cs" />
+    <Compile Include="Models\View Model\Customer_info.cs">
+      <DependentUpon>register.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\View Model\Genre.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -195,6 +198,21 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\View Model\MoviesVM.cs" />
+    <Compile Include="Models\View Model\register.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>register.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\View Model\register.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>register.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\View Model\register.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>register.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +260,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\View Model\register.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>register.edmx</DependentUpon>
+      <LastGenOutput>register.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\View Model\register.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>register.edmx</DependentUpon>
+      <LastGenOutput>register.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
@@ -304,6 +332,13 @@
     </EntityDeploy>
     <Content Include="Models\movie.edmx.diagram">
       <DependentUpon>movie.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\View Model\register.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>register.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\View Model\register.edmx.diagram">
+      <DependentUpon>register.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
@@ -1087,6 +1122,8 @@
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Admin\EditMovie.cshtml" />
     <Content Include="Views\Shared\more\adminn.cshtml" />
+    <Content Include="Views\Admin\Register.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
