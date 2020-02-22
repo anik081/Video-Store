@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Video_Store.Models.View_Model.GenreVM>
+
+@{
+    ViewBag.Title = "Language";
+}
+
+<h2>Genre</h2>
+@if (!Model.Any())
+{
+    <p>
+        No Language to show
+    </p>
+}
+<p>
+    @Html.ActionLink("Add New Language", "AddGenre")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Language
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Delete", "DeleteGenre", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
