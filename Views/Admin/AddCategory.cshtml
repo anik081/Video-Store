@@ -12,10 +12,10 @@
     </div>
 }
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h3>Add your prefarred category here!!!</h3>
         <hr />
@@ -36,7 +36,7 @@
             </div>
         </div>
 
-  
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -48,4 +48,8 @@
 
 <div>
     @Html.ActionLink("Back to Category", "Category")
+</div>
+
+<div>
+    @Html.ActionLink("Back to Movies", "Index")
 </div>

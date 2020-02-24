@@ -3,8 +3,14 @@
 @{
     ViewBag.Title = "Home";
 }
+<ul class="nav navbar-nav navbar-right">
+    <li>@Html.ActionLink("Login", "Login", "Admin")</li>
+</ul>
 
 <h2>Home</h2>
+
+
+
 <p>
     @using (Html.BeginForm("Home", "Home", FormMethod.Get))
     {
@@ -12,11 +18,12 @@
         @Html.RadioButton("SearchBy", "Name", true)<text>Name</text>
         @Html.RadioButton("SearchBy", "Category")<text>Category</text>
         @Html.RadioButton("SearchBy", "Language")<text>Language</text>
-        @Html.RadioButton("SearchBy", "Showall")<text>Show All</text>
+        @Html.RadioButton("SearchBy", "Showall");<text>Show All</text>
 
         <br />
-        @Html.TextBox("search")<input type="submit" id="sub1"/>
-       // <input type="submit" value="Showall"/>
+        @Html.TextBox("search")<input type="submit" id="sub1" />
+        // <input type="submit" value="Showall"/>
+     
     }
     <br />
     <br />
@@ -42,25 +49,26 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Year)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Language)
-        </td>
-     
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Language)
+            </td>
+
+        </tr>
+    }
 
 </table>

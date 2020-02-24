@@ -38,6 +38,7 @@ namespace Video_Store.Controllers
             }
             else
             {
+                TempData["SM"] = "ALL";
                 return View(db.Movies.ToList());
 
             }

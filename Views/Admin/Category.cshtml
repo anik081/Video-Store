@@ -14,27 +14,33 @@
         The Category List is Empty
     </p>
 }
-else { 
+else
+{
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Delete", "DeleteCategory", new { id=item.Id },new { @class = "delete" })
-        </td>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Delete", "DeleteCategory", new { id = item.Id }, new { @class = "delete" })
+                </td>
+            </tr>
+        }
+
+    </table>
 }
 
-</table>
-}
+<div>
+    @Html.ActionLink("Back to Movies", "Index")
+</div>

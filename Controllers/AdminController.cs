@@ -13,6 +13,7 @@ namespace Video_Store.Controllers
 {
     public class AdminController : Controller
     {
+        string name_login;
         // GET: Admin
         [HttpGet]
         public ActionResult Index()
@@ -20,8 +21,8 @@ namespace Video_Store.Controllers
             List<MoviesVM> MovieList;
             using (Db db = new Db())
             {
-              //  ViewBag.Category = new SelectList(db.Category, "Id", "Name");
-
+                //  ViewBag.Category = new SelectList(db.Category, "Id", "Name");
+                ViewBag.Name = name_login;
                 MovieList = db.Movie.ToArray().OrderBy(x => x.Id).Select(x => new MoviesVM(x)).ToList();
             }
             return View(MovieList);
@@ -330,10 +331,14 @@ namespace Video_Store.Controllers
             {
                 if(db.Customer_info.Count(x=>x.Name==model.Name && x.Password == model.Password) == 1)
                 {
+                    name_login = model.Name;
+                    TempData["SM"] = "Successfully Logged in!";
                     return RedirectToAction("Index");
                 }
                 else
                 {
+                    TempData["SM"] = "Name and" +
+                        " passwords does not match!";
                     return View(model);
 
                 }

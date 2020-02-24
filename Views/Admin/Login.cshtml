@@ -5,7 +5,12 @@
 }
 
 <h2>Login here</h2>
-
+@if (TempData["SM"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SM"]
+    </div>
+}
 @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
@@ -48,9 +53,7 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to Home", "Home")
-</div>
+
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
 }

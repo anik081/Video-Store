@@ -5,6 +5,13 @@
 }
 
 <h2>Movies</h2>
+<h5>Welcome @ViewBag.Name to the admin area </h5>
+@if (TempData["SM"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SM"]
+    </div>
+}
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
 
